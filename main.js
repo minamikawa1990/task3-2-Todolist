@@ -70,6 +70,7 @@
         for (let i = 0; i < trClass.length; i++) {
             trClass[i].addEventListener('click', () => {
                 trClass[i].remove();
+                
             });
         }
     }
@@ -79,11 +80,11 @@
         displayTodos();
         console.log(trClass);
 
-        
+        removeButton();
        
     })
 
-    removeButton();
+    
 
     
 
