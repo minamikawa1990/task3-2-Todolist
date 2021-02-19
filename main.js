@@ -78,24 +78,10 @@
     // クリックイベント
     add.addEventListener('click' , () => {
         displayTodos();
-        console.log(trClass);
 
         removeButton();
        
     })
-
-    
-
-    
-
-    
-    
-
-
-    
-
-    
-
     
     
 
