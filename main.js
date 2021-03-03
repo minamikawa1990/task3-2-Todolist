@@ -18,26 +18,31 @@
 
     // 作業ボタンを作成する関数
     function createBtnWorking() {
-        // const trItem = document.createElement('tr');
-        tbodyTasks.appendChild(trItem);
-        const tdWorking = document.createElement('td');
         const btnWorking = document.createElement('button');
         btnWorking.textContent = "作業中";
-        trItem.appendChild(tdWorking);
-        tdWorking.appendChild(btnWorking);
-        console.log(trItem);
-        
+        return btnWorking;
+    }
+    // 削除ボタンを作成する関数
+    function createBtnRemove() {
+        const btnRemove = document.createElement('button');
+        btnRemove.textContent = "削除";
+        return btnRemove;
     }
 
-    // todoを表示する関数
+    // todoを表示する関数（番号、コメント、状態ボタン、削除ボタン）
     function displayTodos() {
         const trItem = document.createElement('tr');
         tbodyTasks.appendChild(trItem);
         const comment = document.createElement('td');
-        comment.textContent = input.value;
+        const tdWorking = document.createElement('td');
+        const tdRemobe = document.createElement('td');
         trItem.appendChild(comment);
+        trItem.appendChild(tdWorking);
+        trItem.appendChild(tdRemove);
+        tdWorking.appendChild(createBtnWorking());
+        tdRemove.appendChild(createBtnRemove());
+        comment.textContent = input.value;
 
-        createBtnWorking();
     }
 
     // todoを追加する関数
