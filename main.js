@@ -35,7 +35,7 @@
         tbodyTasks.appendChild(trItem);
         const comment = document.createElement('td');
         const tdWorking = document.createElement('td');
-        const tdRemobe = document.createElement('td');
+        const tdRemovve = document.createElement('td');
         trItem.appendChild(comment);
         trItem.appendChild(tdWorking);
         trItem.appendChild(tdRemove);
