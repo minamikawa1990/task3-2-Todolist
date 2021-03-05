@@ -11,7 +11,7 @@
     const btnRemove = document.createElement('button');
     const tdRemove = document.createElement('td');
     const trClass = document.getElementsByClassName('tr');
-    // const trItem = document.createElement('tr');
+    const remove = document.getElementsByClassName('remove');
 
 
 // 関数一覧
@@ -35,7 +35,7 @@
         tbodyTasks.appendChild(trItem);
         const comment = document.createElement('td');
         const tdWorking = document.createElement('td');
-        const tdRemovve = document.createElement('td');
+        const tdRemove = document.createElement('td');
         trItem.appendChild(comment);
         trItem.appendChild(tdWorking);
         trItem.appendChild(tdRemove);
@@ -53,6 +53,15 @@
             }
             todos.push(todo);
             console.log(todos);
+    }
+
+    //削除ボタン押下時にその行を消す関数
+    function removeBtn() {
+        for (let i = 0; i < remove.length; i++) {
+            remove[i].addEventListener('click', () => {
+                trClass[i].remove();
+            });
+        }
     }
 
 // 処理
