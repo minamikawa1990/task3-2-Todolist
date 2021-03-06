@@ -11,7 +11,7 @@
     const btnRemove = document.createElement('button');
     const tdRemove = document.createElement('td');
     const trClass = document.getElementsByClassName('tr');
-    const remove = document.getElementsByClassName('remove');
+    const removeClass = document.getElementsByClassName('remove');
 
 
 // 関数一覧
@@ -42,7 +42,6 @@
         tdWorking.appendChild(createBtnWorking());
         tdRemove.appendChild(createBtnRemove());
         comment.textContent = input.value;
-
     }
 
     // todoを追加する関数
@@ -57,8 +56,8 @@
 
     //削除ボタン押下時にその行を消す関数
     function removeBtn() {
-        for (let i = 0; i < remove.length; i++) {
-            remove[i].addEventListener('click', () => {
+        for (let i = 0; i < removeClass.length; i++) {
+            removeClass[i].addEventListener('click', () => {
                 trClass[i].remove();
             });
         }
@@ -69,7 +68,7 @@
     add.addEventListener('click', () => {
         todoAdd();
         displayTodos();
-        
+        removeBtn();
     })
 
 
