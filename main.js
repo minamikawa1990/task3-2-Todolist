@@ -26,12 +26,14 @@
     function createBtnRemove() {
         const btnRemove = document.createElement('button');
         btnRemove.textContent = "削除";
+        btnRemove.classList.add('remove');
         return btnRemove;
     }
 
     // todoを表示する関数（番号、コメント、状態ボタン、削除ボタン）
     function displayTodos() {
         const trItem = document.createElement('tr');
+        trItem.classList.add('tr');
         tbodyTasks.appendChild(trItem);
         const comment = document.createElement('td');
         const tdWorking = document.createElement('td');
@@ -42,108 +44,38 @@
         tdWorking.appendChild(createBtnWorking());
         tdRemove.appendChild(createBtnRemove());
         comment.textContent = input.value;
+        console.log(trItem);
     }
 
     // todoを追加する関数
-    function todoAdd() {
+    function addTask() {
             const todo = {
                 task: input.value,
                 status: "作業中",
             }
             todos.push(todo);
             console.log(todos);
+
+            displayTodos();
     }
 
-    //削除ボタン押下時にその行を消す関数
+    //削除ボタン押下時にその行を消す関数(todoを削除する関数)
     function removeBtn() {
         for (let i = 0; i < removeClass.length; i++) {
             removeClass[i].addEventListener('click', () => {
                 trClass[i].remove();
+                todos.splice(i, 1);
+                return i;
             });
         }
     }
 
 // 処理
 
+
     add.addEventListener('click', () => {
-        todoAdd();
-        displayTodos();
+        addTask();
+        
         removeBtn();
     })
-
-
-
-    // //タスクを表示する関数
-    // function displayTodos() {
-        
-    //     const todo = {
-    //         task: input.value,
-    //         status: "作業中",
-    //     }
-
-    //     // 配列に格納
-    //     todos.push(todo);
-
-    //     // tr要素をtbodyに追加
-    //     const trItem = document.createElement('tr');
-    //     trItem.classList.add('tr');
-    //     tbodyTasks.appendChild(trItem);
-
-
-    //     // IDの作成
-    //     const tdId = document.createElement('td');
-    //     for (let i = 0; i < todos.length; i++) {
-    //         tdId.id = i;
-    //     }
-    //     trItem.appendChild(tdId);
-    //     tdId.textContent = tdId.id;
-            
-    //      //コメントの追加
-    //      const comment = document.createElement('td');
-    //      comment.textContent = todo.task;
-    //      trItem.appendChild(comment);
- 
-    //      //ボタンの追加（作業中）
-    //      const tdWorking = document.createElement('td');
-    //      const btnWorking = document.createElement('button');
-    //      trItem.appendChild(tdWorking);
-    //      tdWorking.appendChild(btnWorking);
-    //      btnWorking.textContent = todo.status;
-    //      console.log(tdWorking);
-         
-    //      //ボタンの追加（削除）
-    //      const tdRemove = document.createElement('td');
-    //      const btnRemove = document.createElement('button');
-    //      trItem.appendChild(tdRemove);
-    //      tdRemove.appendChild(btnRemove);
-    //      btnRemove.textContent = '削除';
-    //      btnRemove.id = tdId;
-    //      btnRemove.classList.add('remove');
-    //      console.log(tdRemove);
- 
-    //      console.log(todos);
-    //      input.value = "";
-    // }
-
-    // // 削除ボタン押下時にその行を消す関数
-    // function removeButton() {
-    //     const trClass = document.getElementsByClassName('tr');
-    //     for (let i = 0; i < trClass.length; i++) {
-    //         trClass[i].addEventListener('click', () => {
-    //             trClass[i].remove();
-    //         });
-            
-    //     }
-    // }
-    
-    // // クリックイベント
-    // add.addEventListener('click' , () => {
-    //     displayTodos();
-
-    //     removeButton();
-       
-    // })
-    
-    
-
 }
