@@ -40,8 +40,8 @@
             id.innerText = todoId;//idのテキストをtodoIdに指定
             comment.innerText = todo.task;//コメントのテキストをオブジェクトの値で指定
             // status.innerText = todo.status;//コメントのテキストをオブジェクトの値で指定
-            funcRemove(remove, row);
-            funcStatus(status, row);
+            removeTask(remove, row);
+            addStatus(status, row);
             });
     }
 
