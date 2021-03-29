@@ -6,7 +6,7 @@
     const tasks = document.getElementById('tasks');
     const todos = [];
 
-    const funcStatus = (status, row) => {
+    const addStatus = (status, row) => {
         const createBtnStatus = document.createElement('button');
         createBtnStatus.textContent = '作業中';
         status.appendChild(createBtnStatus);
@@ -15,7 +15,7 @@
         return createBtnStatus;
     };
 
-    const funcRemove = (remove, row) => {
+    const removeTask = (remove, row) => {
         const createBtnRemove = document.createElement('button');
         createBtnRemove.textContent = "削除";
         remove.appendChild(createBtnRemove);
