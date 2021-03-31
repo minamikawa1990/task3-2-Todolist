@@ -10,14 +10,12 @@
         const createBtnStatus = document.createElement('button');
         createBtnStatus.textContent = '作業中';
         status.appendChild(createBtnStatus);
-        // createBtnStatus.addEventListener('click', () => {
-        // }
         return createBtnStatus;
     };
 
     const removeTask = (remove, row) => {
         const createBtnRemove = document.createElement('button');
-        createBtnRemove.textContent = "削除";
+        createBtnRemove.textContent = '削除';
         remove.appendChild(createBtnRemove);
         createBtnRemove.addEventListener('click', () => {
             const index = row.rowIndex - 1;
@@ -28,7 +26,7 @@
     };
 
     function displayTodos() {
-        tasks.innerText = "";
+        tasks.innerText = '';
         todos.forEach(todo => {
             const todoId = tasks.rows.length;//tbody内の行の個数をId番号に指定
             const row = tasks.insertRow(-1);//変数rowをtasksの最終行に追加
@@ -39,7 +37,7 @@
             const remove = row.insertCell(3);//変数removeをrowの4番目に挿入
             id.innerText = todoId;//idのテキストをtodoIdに指定
             comment.innerText = todo.task;//コメントのテキストをオブジェクトの値で指定
-            // status.innerText = todo.status;//コメントのテキストをオブジェクトの値で指定
+            
             removeTask(remove, row);
             addStatus(status, row);
             });
@@ -52,7 +50,7 @@
         };
         todos.push(todo);
         displayTodos();
-        input.value = "";
+        input.value = '';
     }
 
     add.addEventListener('click', () => {
